@@ -1,0 +1,16 @@
+[Unit]
+Description=ANPR Frontend Development Server
+After=network.target anpr-backend.service
+
+[Service]
+Type=simple
+User=user
+Group=user
+WorkingDirectory=/home/user/Documents/Projects/anpr_client_v2_fe_be/anpr-frontend-v2
+Environment=PATH=/home/user/.nvm/versions/node/v20.19.6/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ExecStart=/home/user/.nvm/versions/node/v20.19.6/bin/npm run dev
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
